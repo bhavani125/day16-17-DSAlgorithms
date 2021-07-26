@@ -20,5 +20,25 @@ public class Utility {
         }
         return -1;
     }
+    //method for insertion sort
+    public static void insertionSort(String[] str, int n){
+        for (int i=1 ;i<n; i++)
+        {
+            String temp = str[i];
 
+            int j = i - 1;
+            while (j >= 0 && temp.length() < str[j].length())
+            {
+                str[j+1] = str[j];
+                j--;
+            }
+            str[j+1] = temp;
+        }
+    }
+
+    //method to print sorted elements
+    public static <t>void printArray(t[] str, int n ){
+        for (int i=0; i<n; i++)
+            System.out.print(str[i]+" ");
+    }
 }
