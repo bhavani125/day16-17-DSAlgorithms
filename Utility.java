@@ -1,44 +1,45 @@
 package com.bridgelabz;
 
+import static com.bridgelabz.BubbleSort.userArray;
+
 public class Utility {
-    static int binarySearchAlgo(String UserStringArray[], String check)
-    {
-        int left=0;
-        int right=UserStringArray.length-1;
-        while(left<=right)
-        {
-            int middle = left+(right-1)/2;
+    //Creating method for binarySearch Algorithm
+    static int binarySearchAlgo(String UserStringArray[], String check) {
+        int left = 0;
+        int right = UserStringArray.length - 1;
+        while (left <= right) {
+            int middle = left + (right - 1) / 2;
             //checking the string using compareTo
             int temp = check.compareTo(UserStringArray[middle]);
-            if(temp==0)
+            if (temp == 0)
                 return middle;
-            if(temp>0)
-                left=middle+1;
+            if (temp > 0)
+                left = middle + 1;
             else {
-                right=middle-1;
+                right = middle - 1;
             }
         }
         return -1;
     }
-    //method for insertion sort
-    public static void insertionSort(String[] str, int n){
-        for (int i=1 ;i<n; i++)
-        {
-            String temp = str[i];
-
-            int j = i - 1;
-            while (j >= 0 && temp.length() < str[j].length())
-            {
-                str[j+1] = str[j];
-                j--;
+    //Creating method for bubbleSort
+     static void bubbleSort() {
+        int temp = 0;
+        int n = userArray.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (userArray[j - 1] > userArray[j]) {
+                    temp = userArray[j - 1];
+                    userArray[j - 1] = userArray[j];
+                    userArray[j] = temp;
+                }
             }
-            str[j+1] = temp;
+
         }
     }
-
-    //method to print sorted elements
-    public static <t>void printArray(t[] str, int n ){
-        for (int i=0; i<n; i++)
-            System.out.print(str[i]+" ");
+    //Creating PrintArray method for bubbleSort
+    static void printArray() {
+        for (int i = 0; i < userArray.length; i++) {
+            System.out.print(userArray[i] + " ");
+        }
     }
 }
