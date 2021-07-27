@@ -3,6 +3,8 @@ package com.bridgelabz;
 import static com.bridgelabz.BubbleSort.userArray;
 
 public class Utility {
+
+
     //Creating method for binarySearch Algorithm
     static int binarySearchAlgo(String UserStringArray[], String check) {
         int left = 0;
@@ -21,8 +23,9 @@ public class Utility {
         }
         return -1;
     }
+
     //Creating method for bubbleSort
-     static void bubbleSort() {
+    static void bubbleSort() {
         int temp = 0;
         int n = userArray.length;
         for (int i = 0; i < n; i++) {
@@ -36,10 +39,32 @@ public class Utility {
 
         }
     }
+
     //Creating PrintArray method for bubbleSort
     static void printArray() {
         for (int i = 0; i < userArray.length; i++) {
             System.out.print(userArray[i] + " ");
         }
+    }
+
+    //Creating insertionSort  method
+    public void insertionSort(int arr[]) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
+    //Creating print method to print insertion array
+     static void print(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++)
+            System.out.println(arr[i] + "");
     }
 }
